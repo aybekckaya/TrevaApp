@@ -1,5 +1,5 @@
 <?php
-echo "asdasdasd"; 
+echo "asdasdasd";     
 
 /*
 CREATE DATABASE TrevaDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
