@@ -1,5 +1,5 @@
 <?php
-$host = '68.183.222.202'; // örnek: '127.0.0.1' ya da '123.45.67.89'
+$host = 'localhost'; // örnek: '127.0.0.1' ya da '123.45.67.89'
 $db   = 'TrevaDB';
 $user = 'aybekcankaya';
 $pass = '1020304050Aa!';
