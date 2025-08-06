@@ -1,0 +1,26 @@
+name: 🚀 Auto Deploy to DigitalOcean
+
+on:
+  push:
+    branches:
+      - main  # Hangi branche push’ta tetiklensin istiyorsan onu yaz
+
+jobs:
+  deploy:
+    name: Deploy via SSH
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
+
+    - name: 📡 SSH to Droplet and deploy
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: ${{ secrets.DO_HOST }}
+        username: ${{ secrets.DO_USER }}
+        key: ${{ secrets.DO_KEY }}
+        script: |
+          cd /var/www/html/my-api
+          git pull origin main
+          echo "✅ Deploy completed on DigitalOcean!"
