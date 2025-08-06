@@ -1,6 +1,5 @@
 <?php 
 
-
 class AuthMiddleware {
     public static function check() {
         $headers = apache_request_headers();
