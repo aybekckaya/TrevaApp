@@ -35,21 +35,21 @@ if (!$query) {
 }
 
 // Güvenlik: sadece belirli SQL türlerine izin ver (isteğe göre artırılabilir)
-$allowed_starts = ['SELECT', 'INSERT', 'UPDATE', 'DELETE'];
-$starts_ok = false;
-foreach ($allowed_starts as $type) {
-    if (stripos(trim($query), $type) === 0) {
-        $starts_ok = true;
-        break;
-    }
-}
+// $allowed_starts = ['SELECT', 'INSERT', 'UPDATE', 'DELETE', ''];
+// $starts_ok = false;
+// foreach ($allowed_starts as $type) {
+//     if (stripos(trim($query), $type) === 0) {
+//         $starts_ok = true;
+//         break;
+//     }
+// }
 
-if (!$starts_ok) {
+// if (!$starts_ok) {
     
-    http_response_code(400);
-    echo json_encode(['error' => 'Query type not allowed']);
-    exit;
-}
+//     http_response_code(400);
+//     echo json_encode(['error' => 'Query type not allowed']);
+//     exit;
+// }
 
 // Sorguyu çalıştır
 try {
