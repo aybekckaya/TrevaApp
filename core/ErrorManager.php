@@ -11,8 +11,8 @@ class ErrorManager {
         'REGISTER_FAILED' => ['code' => 1005, 'message' => 'User registration failed.'],
         'ENDPOINT_NOT_FOUND' => ['code' => 1006, 'message' => 'API endpoint not found.'],
         'INVALID_TOKEN' => ['code' => 1007, 'message' => 'Invalid API token.'],
-        'AUTH_HEADER_MISSING' => ['code' => 1008, 'message' => 'Authorization header is missing.']
-
+        'AUTH_HEADER_MISSING' => ['code' => 1008, 'message' => 'Authorization header is missing.'],
+        'USER_NOT_EXISTS' => ['code' => 1009, 'message' => 'User does not exist.']
     ];
 
     public static function throw($key, $httpStatusCode = 400) {

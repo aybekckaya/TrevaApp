@@ -22,7 +22,13 @@ class SQL {
     public static function insertUser() {
         return "INSERT INTO users (name, email, password, google_id) VALUES (?, ?, ?, ?)";
     }
+
+    public static function getUserByEmail() {
+         return "SELECT * FROM users WHERE email = ?";
+    }
+
 }
+
 
 
 
