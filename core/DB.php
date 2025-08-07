@@ -24,11 +24,12 @@ class DB {
     }
 
     public static function execute($sql, $params = []) {
+       
         // LOCAL ORTAM ALGILAMA
         $isLocal = in_array($_SERVER['SERVER_NAME'], ['localhost', '127.0.0.1']) ||
                    in_array($_SERVER['REMOTE_ADDR'], ['::1', '127.0.0.1']);
 
-        // Eğer local ise dbquery.php'yi kullan
+         // Eğer local ise dbquery.php'yi kullan
         if ($isLocal) {
             return self::executeRemotely($sql, $params);
         }
@@ -72,6 +73,9 @@ class DB {
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
+         echo json_encode(['response' => $response]);
+         exit;
+
         if (curl_errno($ch)) {
             curl_close($ch);
             ErrorManager::throw('DB_ERROR', 500);
@@ -80,6 +84,7 @@ class DB {
         curl_close($ch);
 
         if ($httpCode !== 200) {
+             
             ErrorManager::throw('DB_ERROR', $httpCode);
         }
 

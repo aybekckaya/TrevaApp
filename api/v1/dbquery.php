@@ -8,11 +8,13 @@ header('Content-Type: application/json');
 $clientIp = $_SERVER['REMOTE_ADDR'];
 $allowed = ['127.0.0.1', '::1'];
 
-if (!in_array($clientIp, $allowed)) {
-    http_response_code(403);
-    echo json_encode(['error' => 'Access denied']);
-    exit;
-}
+// var_dump($clientIp); // Debugging line to check the client IP
+// if (!in_array($clientIp, $allowed)) {
+    
+//     http_response_code(403);
+//     echo json_encode(['error' => 'Access denied']);
+//     exit;
+// }
 
 // Sadece POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -26,6 +28,7 @@ $query  = $input['query'] ?? null;
 $params = $input['params'] ?? [];
 
 if (!$query) {
+     
     http_response_code(400);
     echo json_encode(['error' => 'Missing SQL query']);
     exit;
@@ -42,6 +45,7 @@ foreach ($allowed_starts as $type) {
 }
 
 if (!$starts_ok) {
+    
     http_response_code(400);
     echo json_encode(['error' => 'Query type not allowed']);
     exit;
@@ -52,6 +56,7 @@ try {
     $result = DB::execute($query, $params);
     echo json_encode(['result' => $result]);
 } catch (Exception $e) {
+    
     http_response_code(500);
     echo json_encode(['error' => 'Execution failed', 'details' => $e->getMessage()]);
 }
