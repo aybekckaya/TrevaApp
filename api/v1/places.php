@@ -1,15 +1,16 @@
 <?php
 
-echo json_encode([
+require_once __DIR__ . '/../../core/Response.php';
+
+Response::success([
     'places' => ['istanbul', 'bursa']
 ]);
 
 /*
 $user = AuthMiddleware::check(); // Token kontrolü yapılır
 
-echo json_encode([
+Response::success([
     'places' => ['istanbul', 'bursa'],
     'user_id' => $user['uid']
 ]);
-
 */

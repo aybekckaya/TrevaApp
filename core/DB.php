@@ -73,8 +73,7 @@ class DB {
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-         echo json_encode(['response' => $response]);
-         exit;
+        
 
         if (curl_errno($ch)) {
             curl_close($ch);

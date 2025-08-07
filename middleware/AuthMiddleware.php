@@ -4,16 +4,14 @@ class AuthMiddleware {
     public static function check() {
         $headers = apache_request_headers();
         if (!isset($headers['Authorization'])) {
-            http_response_code(401);
-            echo json_encode(['error' => 'Authorization header missing']);
+            ErrorMManager::throw('AUTH_HEADER_MISSING', 401);
             exit;
         }
 
         $token = str_replace('Bearer ', '', $headers['Authorization']);
         $user = Auth::validateToken($token);
         if (!$user) {
-            http_response_code(401);
-            echo json_encode(['error' => 'Invalid token']);
+            ErrorManager::throw('INVALID_TOKEN', 401);
             exit;
         }
 

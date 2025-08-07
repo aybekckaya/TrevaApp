@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . '/Response.php';
 
 class Router {
     public static function dispatch($uri) {
@@ -11,7 +12,6 @@ class Router {
                 exit;
             }
         }
-        http_response_code(404);
-        echo json_encode(['error' => 'Endpoint not found']);
+        ErrorManager::throw('ENDPOINT_NOT_FOUND', 404);
     }
 }
