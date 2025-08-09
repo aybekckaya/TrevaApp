@@ -14,7 +14,7 @@ $input = json_decode(file_get_contents('php://input'), true);
 $email      = trim($input['email'] ?? '');
 $password   = $input['password'] ?? null;
 $google_id  = $input['google_id'] ?? null;
-$name       = trim($input['name'] ?? '');
+$name       = $input['name'] ?? null;
 
 if (!$password && !$google_id) {
     ErrorManager::throw('INVALID_INPUT', 400); // Giriş yöntemi belirtilmemiş

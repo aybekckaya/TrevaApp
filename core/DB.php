@@ -74,9 +74,9 @@ class DB {
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         curl_close($ch);
-        Response::success($response);
+        //Response::success($response);
 
-        return true;
+        return $response;
         /*
         var_dump($sql,$params, $response, $httpCode); // Debugging output
         
