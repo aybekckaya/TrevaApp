@@ -73,6 +73,8 @@ class DB {
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
+        var_dump($sql,$params, $response, $httpCode); // Debugging output
+
         curl_close($ch);
         //Response::success($response);
 

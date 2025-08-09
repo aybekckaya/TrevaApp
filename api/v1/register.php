@@ -20,6 +20,7 @@ if (!$email || (!$password && !$google_id)) {
     ErrorManager::throw('INVALID_INPUT', 400);
 }
 
+var_dump($name, $email, $password, $google_id);
 // Kullanıcı var mı?
 $existing = DB::execute(SQL::userExistsByEmail(), [$email]);
 if ($existing) {
