@@ -27,6 +27,10 @@ class SQL {
          return "SELECT * FROM users WHERE email = ?";
     }
 
+    public static function getUserByGoogleId() {
+        return "SELECT * FROM users WHERE google_id = ?";
+    }
+
 }
 
 

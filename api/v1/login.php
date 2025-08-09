@@ -51,7 +51,7 @@ if ($password) {
 
 // Giriş Google ID ile yapılıyorsa
 if ($google_id) {
-    $user = DB::execute("SELECT * FROM users WHERE google_id = ?", [$google_id]);
+    $user = DB::execute(SQL::getUserByGoogleId(), [$google_id]);
 
     // Kullanıcı daha önce kayıt olmamışsa → yeni kullanıcı oluştur
     if (!$user || count($user) === 0) {
@@ -61,7 +61,7 @@ if ($google_id) {
             null,
             $google_id
         ]);
-        $user = DB::execute("SELECT * FROM users WHERE google_id = ?", [$google_id]);
+        $user = DB::execute(SQL::getUserByGoogleId(), [$google_id]);
     }
 
     $user = $user[0];

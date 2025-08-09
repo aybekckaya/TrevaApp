@@ -73,6 +73,12 @@ class DB {
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
+        curl_close($ch);
+        Response::success($response);
+
+        return true;
+        /*
+        var_dump($sql,$params, $response, $httpCode); // Debugging output
         
 
         if (curl_errno($ch)) {
@@ -89,6 +95,7 @@ class DB {
 
         $data = json_decode($response, true);
         return $data['result'] ?? null;
+        */
     }
 }
 
