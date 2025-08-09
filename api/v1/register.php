@@ -23,7 +23,8 @@ if (!$email || (!$password && !$google_id)) {
 var_dump($name, $email, $password, $google_id);
 // Kullanıcı var mı?
 $existing = DB::execute(SQL::userExistsByEmail(), [$email]);
-if ($existing) {
+
+if (is_array($existing) && count($existing) > 0) {
     ErrorManager::throw('USER_EXISTS', 409);
 }
 
