@@ -78,9 +78,8 @@ class DB {
         curl_close($ch);
         //Response::success($response);
 
-        $arr = $response["data"] ?? [];
-        $element = json_decode($arr);
-        return $element;
+        var_dump(json_decode($response, true));
+        return $response;
         /*
         var_dump($sql,$params, $response, $httpCode); // Debugging output
         
