@@ -11,27 +11,23 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $input = json_decode(file_get_contents('php://input'), true);
 
-$name       = trim($input['name'] ?? '');
-$email      = trim($input['email'] ?? '');
-$password   = $input['password'] ?? null;
-$google_id  = $input['google_id'] ?? null;
+$email    = trim($input['email'] ?? '');
+$password = $input['password'] ?? null;
 
-if (!$email || (!$password && !$google_id)) {
+if (!$email || !$password) {
     ErrorManager::throw('INVALID_INPUT', 400);
 }
 
-var_dump($name, $email, $password, $google_id);
 // Kullanıcı var mı?
 $existing = DB::execute(SQL::userExistsByEmail(), [$email]);
-
 if (is_array($existing) && count($existing) > 0) {
     ErrorManager::throw('USER_EXISTS', 409);
 }
 
-$password_hash = $password ? password_hash($password, PASSWORD_DEFAULT) : null;
+$password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-// Kullanıcıyı ekle
-$success = DB::execute(SQL::insertUser(), [$name, $email, $password_hash, $google_id]);
+// Kullanıcıyı ekle (name ve google_id null olarak eklenir)
+$success = DB::execute(SQL::insertUser(), [null, $email, $password_hash, null]);
 
 if (!$success) {
     ErrorManager::throw('REGISTER_FAILED', 500);
@@ -41,15 +37,17 @@ if (!$success) {
 $newUser = DB::execute("SELECT id FROM users WHERE email = ?", [$email]);
 $userId = $newUser[0]['id'] ?? null;
 
+var_dump($newUser, $email, $password);
+
 if (!$userId) {
-    ErrorManager::throw('REGISTER_FAILED', 500);
+    ErrorManager::throw('REGISTER_FAILED', 501);
 }
 
-// ✅ Token üret
+// Token üret
 $token = Auth::generateToken($userId);
 
-// 🔁 Başarılı yanıt
-echo json_encode([
+Response::success([
     'message' => 'User registered successfully',
     'token' => $token
 ]);
+
