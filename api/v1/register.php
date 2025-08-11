@@ -18,6 +18,7 @@ if (!$email || !$password) {
     ErrorManager::throw('INVALID_INPUT', 400);
 }
 
+
 // Kullanıcı var mı?
 $existing = DB::execute(SQL::userExistsByEmail(), [$email]);
 if (is_array($existing) && count($existing) > 0) {
@@ -37,7 +38,6 @@ if (!$success) {
 $newUser = DB::execute("SELECT id FROM users WHERE email = ?", [$email]);
 $userId = $newUser[0]['id'] ?? null;
 
-var_dump($newUser, $email, $password);
 
 if (!$userId) {
     ErrorManager::throw('REGISTER_FAILED', 501);
