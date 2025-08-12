@@ -272,6 +272,6 @@ if (($method === 'GET' && preg_match('#/following$#', $sub)) || $acceptAltFollow
 
 } catch (Throwable $e) {
     Logger::error("user api error: " . $e->getMessage());
-    var_dump($e->getMessage());
+   // var_dump($e->getMessage());
     ErrorManager::throw('SERVER_ERROR', 500);
 }
