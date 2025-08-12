@@ -21,3 +21,4 @@ RewriteRule ^media(?:/(.*))?$ api/v1/media.php/$1 [QSA,L]
 
 # Front-controller fallback
 RewriteRule ^ index.php [QSA,L]
+

@@ -13,9 +13,9 @@ require_once __DIR__ . '/core/ErrorManager.php';
 require_once __DIR__ . '/core/Logger.php';
 
 
-// foreach (SQL::dropAllTables() as $query) {
-//     DB::execute($query);
-// }
+foreach (SQL::dropAllTables() as $query) {
+    DB::execute($query);
+}
 
 
 DB::execute(SQL::createUsersTable());
