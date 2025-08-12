@@ -8,16 +8,24 @@ class ErrorManager {
         'METHOD_NOT_ALLOWED' => ['code' => 1004, 'message' => 'Method not allowed.'],
         'ENDPOINT_NOT_FOUND' => ['code' => 1006, 'message' => 'API endpoint not found.'],
         'DB_ERROR'           => ['code' => 1003, 'message' => 'Database error.'],
+        'SERVER_ERROR'       => ['code' => 1500, 'message' => 'Server error.'],
 
         // Auth
         'AUTH_HEADER_MISSING'=> ['code' => 1008, 'message' => 'Authorization header is missing.'],
         'INVALID_TOKEN'      => ['code' => 1007, 'message' => 'Invalid API token.'],
         'UNAUTHORIZED'       => ['code' => 1010, 'message' => 'Unauthorized.'],
 
-        // Kullanıcı
+        // Kullanıcı (register/login)
         'USER_EXISTS'        => ['code' => 1001, 'message' => 'User already exists.'],
         'USER_NOT_EXISTS'    => ['code' => 1009, 'message' => 'User does not exist.'],
         'REGISTER_FAILED'    => ['code' => 1005, 'message' => 'User registration failed.'],
+
+        // Kullanıcı (user.php özel)
+        'USER_NOT_FOUND'     => ['code' => 1404, 'message' => 'User not found.'],
+        'USERNAME_TAKEN'     => ['code' => 1409, 'message' => 'Username already taken.'],
+        'NO_FIELDS_TO_UPDATE'=> ['code' => 1400, 'message' => 'No fields to update.'],
+        'INVALID_USER_ID'    => ['code' => 1400, 'message' => 'Invalid user_id.'],
+        'TARGET_NOT_FOUND'   => ['code' => 1404, 'message' => 'Target not found.'],
 
         // Girdi / JSON
         'INVALID_INPUT'      => ['code' => 1002, 'message' => 'Missing or invalid input.'],

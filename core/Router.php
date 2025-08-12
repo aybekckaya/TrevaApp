@@ -7,6 +7,7 @@ class Router {
         $path = parse_url($uri, PHP_URL_PATH);
         if (strpos($path, '/api/v1/') !== 0) {
             $endpoint = __DIR__ . '/../api/v1/' . basename($path) . '.php';
+            //var_dump($endpoint);
             if (file_exists($endpoint)) {
                 require $endpoint;
                 exit;

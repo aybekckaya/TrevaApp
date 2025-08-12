@@ -1,4 +1,23 @@
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
+
+# Authorization header'ını PHP'ye geçir
+RewriteCond %{HTTP:Authorization} .
+RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# Var olan dosya/klasörleri olduğu gibi bırak
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# API v1 pretty routes (uzantısız URL'ler)
+RewriteRule ^api/v1/user(?:/(.*))?$  api/v1/user.php/$1  [QSA,L]
+RewriteRule ^api/v1/trip(?:/(.*))?$  api/v1/trip.php/$1  [QSA,L]
+RewriteRule ^api/v1/media(?:/(.*))?$ api/v1/media.php/$1 [QSA,L]
+
+# Kısa alias'lar (opsiyonel): /user → /api/v1/user.php
+RewriteRule ^user(?:/(.*))?$  api/v1/user.php/$1  [QSA,L]
+RewriteRule ^trip(?:/(.*))?$  api/v1/trip.php/$1  [QSA,L]
+RewriteRule ^media(?:/(.*))?$ api/v1/media.php/$1 [QSA,L]
+
+# Front-controller fallback
 RewriteRule ^ index.php [QSA,L]
- 

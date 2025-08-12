@@ -21,3 +21,4 @@ require_once __DIR__ . '/core/Logger.php';
 DB::execute(SQL::createUsersTable());
 DB::execute(SQL::createTripsTable());
 DB::execute(SQL::createMediaTable());
+DB::execute(SQL::createUserFollowTable());

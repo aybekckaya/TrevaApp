@@ -1,0 +1,27 @@
+[2025-08-12 07:34:38.258] [::1] [INFO] DB.connect2 start dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4 user=aybekcankaya1
+[2025-08-12 07:34:38.496] [::1] [INFO] DB.connect2 success dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4
+[2025-08-12 07:34:38.500] [::1] [INFO] SQL.prepare qid=deaf82ee sql=CREATE TABLE IF NOT EXISTS users ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255), google_id VARCHAR(255) UNIQUE, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-12 07:34:38.574] [::1] [INFO] SQL.exec qid=deaf82ee ok elapsed_ms=74 affected=0
+[2025-08-12 07:34:38.575] [::1] [INFO] SQL.prepare qid=b3b1d019 sql=CREATE TABLE IF NOT EXISTS trips ( id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT NULL, latitude DECIMAL(9,6) NOT NULL, longitude DECIMAL(9,6) NOT NULL, user_id INT NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_trips_user_id (user_id), CONSTRAINT fk_trips_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-12 07:34:38.645] [::1] [INFO] SQL.exec qid=b3b1d019 ok elapsed_ms=68 affected=0
+[2025-08-12 07:34:38.646] [::1] [INFO] SQL.prepare qid=cf3866c4 sql=CREATE TABLE IF NOT EXISTS media ( id INT AUTO_INCREMENT PRIMARY KEY, trip_id INT NOT NULL, media_type VARCHAR(100) NOT NULL, full_name VARCHAR(1024) NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_media_trip_id (trip_id), CONSTRAINT fk_media_trip FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-12 07:34:38.737] [::1] [INFO] SQL.exec qid=cf3866c4 ok elapsed_ms=91 affected=0
+[2025-08-12 07:34:38.744] [::1] [INFO] SQL.prepare qid=28264ed6 sql=SELECT * FROM users WHERE email = ? params=["ac***@deneme.com"]
+[2025-08-12 07:34:38.805] [::1] [INFO] SQL.select qid=28264ed6 ok elapsed_ms=61 rows=1
+[2025-08-12 07:34:56.553] [::1] [INFO] DB.connect2 start dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4 user=aybekcankaya1
+[2025-08-12 07:34:56.770] [::1] [INFO] DB.connect2 success dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4
+[2025-08-12 07:34:56.773] [::1] [INFO] SQL.prepare qid=f171c531 sql=CREATE TABLE IF NOT EXISTS users ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255), google_id VARCHAR(255) UNIQUE, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-12 07:34:56.841] [::1] [INFO] SQL.exec qid=f171c531 ok elapsed_ms=68 affected=0
+[2025-08-12 07:34:56.842] [::1] [INFO] SQL.prepare qid=3b0681ab sql=CREATE TABLE IF NOT EXISTS trips ( id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT NULL, latitude DECIMAL(9,6) NOT NULL, longitude DECIMAL(9,6) NOT NULL, user_id INT NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_trips_user_id (user_id), CONSTRAINT fk_trips_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-12 07:34:56.913] [::1] [INFO] SQL.exec qid=3b0681ab ok elapsed_ms=70 affected=0
+[2025-08-12 07:34:56.915] [::1] [INFO] SQL.prepare qid=5edcb13a sql=CREATE TABLE IF NOT EXISTS media ( id INT AUTO_INCREMENT PRIMARY KEY, trip_id INT NOT NULL, media_type VARCHAR(100) NOT NULL, full_name VARCHAR(1024) NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_media_trip_id (trip_id), CONSTRAINT fk_media_trip FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-12 07:34:56.983] [::1] [INFO] SQL.exec qid=5edcb13a ok elapsed_ms=68 affected=0
+[2025-08-12 07:34:56.994] [::1] [INFO] trip rid= start method=GET ct="" uid=2
+[2025-08-12 07:34:56.996] [::1] [INFO] trip rid= list page=1 per=10
+[2025-08-12 07:34:56.996] [::1] [INFO] SQL.prepare qid=fb654137 sql=SELECT COUNT(*) AS cnt FROM trips WHERE user_id = ? params=[2]
+[2025-08-12 07:34:57.054] [::1] [INFO] SQL.select qid=fb654137 ok elapsed_ms=57 rows=1
+[2025-08-12 07:34:57.055] [::1] [INFO] SQL.prepare qid=3fd81120 sql=SELECT * FROM trips WHERE user_id = ? ORDER BY created_at DESC LIMIT 10 OFFSET 0 params=[2]
+[2025-08-12 07:34:57.120] [::1] [INFO] SQL.select qid=3fd81120 ok elapsed_ms=64 rows=10
+[2025-08-12 07:34:57.123] [::1] [INFO] SQL.prepare qid=e3646141 sql=SELECT trip_id, id, media_type, full_name FROM media WHERE trip_id IN (?,?,?,?,?,?,?,?,?,?) ORDER BY id ASC params=["11","10","9","8","7","6","5","4","3","2"]
+[2025-08-12 07:34:57.199] [::1] [INFO] SQL.select qid=e3646141 ok elapsed_ms=75 rows=52
+[2025-08-12 07:34:57.203] [::1] [INFO] trip rid= list_ok page=1 per=10 total=11 items=10

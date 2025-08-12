@@ -1,0 +1,269 @@
+[2025-08-11 19:08:41.249] [::1] [INFO] DB.connect2 start dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4 user=aybekcankaya1
+[2025-08-11 19:08:41.461] [::1] [INFO] DB.connect2 success dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4
+[2025-08-11 19:08:41.464] [::1] [INFO] SQL.prepare qid=a78c1d80 sql=CREATE TABLE IF NOT EXISTS users ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255), google_id VARCHAR(255) UNIQUE, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:08:41.532] [::1] [INFO] SQL.exec qid=a78c1d80 ok elapsed_ms=66 affected=0
+[2025-08-11 19:08:41.532] [::1] [INFO] SQL.prepare qid=65f5032a sql=CREATE TABLE IF NOT EXISTS trips ( id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT NULL, latitude DECIMAL(9,6) NOT NULL, longitude DECIMAL(9,6) NOT NULL, user_id INT NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_trips_user_id (user_id), CONSTRAINT fk_trips_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:08:41.599] [::1] [INFO] SQL.exec qid=65f5032a ok elapsed_ms=66 affected=0
+[2025-08-11 19:08:41.599] [::1] [INFO] SQL.prepare qid=6b701294 sql=CREATE TABLE IF NOT EXISTS media ( id INT AUTO_INCREMENT PRIMARY KEY, trip_id INT NOT NULL, media_type VARCHAR(100) NOT NULL, full_name VARCHAR(1024) NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_media_trip_id (trip_id), CONSTRAINT fk_media_trip FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:08:41.668] [::1] [INFO] SQL.exec qid=6b701294 ok elapsed_ms=69 affected=0
+[2025-08-11 19:08:47.507] [::1] [INFO] DB.connect2 start dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4 user=aybekcankaya1
+[2025-08-11 19:08:48.029] [::1] [INFO] DB.connect2 success dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4
+[2025-08-11 19:08:48.034] [::1] [INFO] SQL.prepare qid=1826e1b1 sql=CREATE TABLE IF NOT EXISTS users ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255), google_id VARCHAR(255) UNIQUE, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:08:48.109] [::1] [INFO] SQL.exec qid=1826e1b1 ok elapsed_ms=73 affected=0
+[2025-08-11 19:08:48.109] [::1] [INFO] SQL.prepare qid=032027db sql=CREATE TABLE IF NOT EXISTS trips ( id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT NULL, latitude DECIMAL(9,6) NOT NULL, longitude DECIMAL(9,6) NOT NULL, user_id INT NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_trips_user_id (user_id), CONSTRAINT fk_trips_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:08:48.189] [::1] [INFO] SQL.exec qid=032027db ok elapsed_ms=80 affected=0
+[2025-08-11 19:08:48.190] [::1] [INFO] SQL.prepare qid=03d07e8b sql=CREATE TABLE IF NOT EXISTS media ( id INT AUTO_INCREMENT PRIMARY KEY, trip_id INT NOT NULL, media_type VARCHAR(100) NOT NULL, full_name VARCHAR(1024) NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_media_trip_id (trip_id), CONSTRAINT fk_media_trip FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:08:48.273] [::1] [INFO] SQL.exec qid=03d07e8b ok elapsed_ms=83 affected=0
+[2025-08-11 19:08:53.823] [::1] [INFO] DB.connect2 start dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4 user=aybekcankaya1
+[2025-08-11 19:08:54.054] [::1] [INFO] DB.connect2 success dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4
+[2025-08-11 19:08:54.056] [::1] [INFO] SQL.prepare qid=2202ccb3 sql=CREATE TABLE IF NOT EXISTS users ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255), google_id VARCHAR(255) UNIQUE, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:08:54.125] [::1] [INFO] SQL.exec qid=2202ccb3 ok elapsed_ms=68 affected=0
+[2025-08-11 19:08:54.126] [::1] [INFO] SQL.prepare qid=888e241b sql=CREATE TABLE IF NOT EXISTS trips ( id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT NULL, latitude DECIMAL(9,6) NOT NULL, longitude DECIMAL(9,6) NOT NULL, user_id INT NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_trips_user_id (user_id), CONSTRAINT fk_trips_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:08:54.188] [::1] [INFO] SQL.exec qid=888e241b ok elapsed_ms=62 affected=0
+[2025-08-11 19:08:54.189] [::1] [INFO] SQL.prepare qid=75480995 sql=CREATE TABLE IF NOT EXISTS media ( id INT AUTO_INCREMENT PRIMARY KEY, trip_id INT NOT NULL, media_type VARCHAR(100) NOT NULL, full_name VARCHAR(1024) NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_media_trip_id (trip_id), CONSTRAINT fk_media_trip FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:08:54.257] [::1] [INFO] SQL.exec qid=75480995 ok elapsed_ms=68 affected=0
+[2025-08-11 19:08:54.264] [::1] [INFO] SQL.prepare qid=c6c0c023 sql=SELECT * FROM users WHERE email = ? params=["ac***@deneme.com"]
+[2025-08-11 19:08:54.335] [::1] [INFO] SQL.select qid=c6c0c023 ok elapsed_ms=69 rows=1
+[2025-08-11 19:09:01.601] [::1] [INFO] DB.connect2 start dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4 user=aybekcankaya1
+[2025-08-11 19:09:01.797] [::1] [INFO] DB.connect2 success dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4
+[2025-08-11 19:09:01.798] [::1] [INFO] SQL.prepare qid=e8d1faf7 sql=CREATE TABLE IF NOT EXISTS users ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255), google_id VARCHAR(255) UNIQUE, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:09:01.869] [::1] [INFO] SQL.exec qid=e8d1faf7 ok elapsed_ms=70 affected=0
+[2025-08-11 19:09:01.871] [::1] [INFO] SQL.prepare qid=b37c73bf sql=CREATE TABLE IF NOT EXISTS trips ( id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT NULL, latitude DECIMAL(9,6) NOT NULL, longitude DECIMAL(9,6) NOT NULL, user_id INT NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_trips_user_id (user_id), CONSTRAINT fk_trips_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:09:01.939] [::1] [INFO] SQL.exec qid=b37c73bf ok elapsed_ms=67 affected=0
+[2025-08-11 19:09:01.940] [::1] [INFO] SQL.prepare qid=c9477df2 sql=CREATE TABLE IF NOT EXISTS media ( id INT AUTO_INCREMENT PRIMARY KEY, trip_id INT NOT NULL, media_type VARCHAR(100) NOT NULL, full_name VARCHAR(1024) NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_media_trip_id (trip_id), CONSTRAINT fk_media_trip FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:09:02.009] [::1] [INFO] SQL.exec qid=c9477df2 ok elapsed_ms=69 affected=0
+[2025-08-11 19:09:02.010] [::1] [INFO] trip rid=1f08209b start method=POST ct="multipart/form-data; boundary=--------------------------242927763187349187929350" uid=2
+[2025-08-11 19:09:02.012] [::1] [INFO] trip rid=1f08209b create multipart files=0 bytes=0
+[2025-08-11 19:09:02.012] [::1] [ERROR] trip rid=1f08209b invalid_input title_len=0 lat=null lng=null
+[2025-08-11 19:09:33.037] [::1] [INFO] DB.connect2 start dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4 user=aybekcankaya1
+[2025-08-11 19:09:33.263] [::1] [INFO] DB.connect2 success dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4
+[2025-08-11 19:09:33.264] [::1] [INFO] SQL.prepare qid=9d479c5d sql=CREATE TABLE IF NOT EXISTS users ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255), google_id VARCHAR(255) UNIQUE, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:09:33.337] [::1] [INFO] SQL.exec qid=9d479c5d ok elapsed_ms=72 affected=0
+[2025-08-11 19:09:33.338] [::1] [INFO] SQL.prepare qid=8f7c536c sql=CREATE TABLE IF NOT EXISTS trips ( id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT NULL, latitude DECIMAL(9,6) NOT NULL, longitude DECIMAL(9,6) NOT NULL, user_id INT NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_trips_user_id (user_id), CONSTRAINT fk_trips_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:09:33.414] [::1] [INFO] SQL.exec qid=8f7c536c ok elapsed_ms=75 affected=0
+[2025-08-11 19:09:33.414] [::1] [INFO] SQL.prepare qid=54677fc7 sql=CREATE TABLE IF NOT EXISTS media ( id INT AUTO_INCREMENT PRIMARY KEY, trip_id INT NOT NULL, media_type VARCHAR(100) NOT NULL, full_name VARCHAR(1024) NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_media_trip_id (trip_id), CONSTRAINT fk_media_trip FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:09:33.490] [::1] [INFO] SQL.exec qid=54677fc7 ok elapsed_ms=75 affected=0
+[2025-08-11 19:09:33.490] [::1] [INFO] trip rid=7c126c30 start method=POST ct="multipart/form-data; boundary=--------------------------728610567485820531264423" uid=2
+[2025-08-11 19:09:33.490] [::1] [INFO] trip rid=7c126c30 create multipart files=0 bytes=0
+[2025-08-11 19:09:33.490] [::1] [ERROR] trip rid=7c126c30 invalid_input title_len=0 lat=null lng=null
+[2025-08-11 19:10:48.979] [::1] [INFO] DB.connect2 start dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4 user=aybekcankaya1
+[2025-08-11 19:10:49.214] [::1] [INFO] DB.connect2 success dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4
+[2025-08-11 19:10:49.215] [::1] [INFO] SQL.prepare qid=04ebc638 sql=CREATE TABLE IF NOT EXISTS users ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255), google_id VARCHAR(255) UNIQUE, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:10:49.278] [::1] [INFO] SQL.exec qid=04ebc638 ok elapsed_ms=63 affected=0
+[2025-08-11 19:10:49.279] [::1] [INFO] SQL.prepare qid=6e1982c5 sql=CREATE TABLE IF NOT EXISTS trips ( id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT NULL, latitude DECIMAL(9,6) NOT NULL, longitude DECIMAL(9,6) NOT NULL, user_id INT NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_trips_user_id (user_id), CONSTRAINT fk_trips_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:10:49.347] [::1] [INFO] SQL.exec qid=6e1982c5 ok elapsed_ms=68 affected=0
+[2025-08-11 19:10:49.348] [::1] [INFO] SQL.prepare qid=4f2e0f75 sql=CREATE TABLE IF NOT EXISTS media ( id INT AUTO_INCREMENT PRIMARY KEY, trip_id INT NOT NULL, media_type VARCHAR(100) NOT NULL, full_name VARCHAR(1024) NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_media_trip_id (trip_id), CONSTRAINT fk_media_trip FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:10:49.418] [::1] [INFO] SQL.exec qid=4f2e0f75 ok elapsed_ms=69 affected=0
+[2025-08-11 19:10:49.419] [::1] [INFO] trip rid=d0e30f65 start method=POST ct="multipart/form-data; boundary=--------------------------024398378880475695905319" uid=2
+[2025-08-11 19:10:49.420] [::1] [INFO] trip rid=d0e30f65 create multipart files=0 bytes=0
+[2025-08-11 19:10:49.420] [::1] [ERROR] trip rid=d0e30f65 invalid_input title_len=0 lat=null lng=null
+[2025-08-11 19:19:56.383] [::1] [INFO] DB.connect2 start dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4 user=aybekcankaya1
+[2025-08-11 19:19:56.581] [::1] [INFO] DB.connect2 success dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4
+[2025-08-11 19:19:56.588] [::1] [INFO] SQL.prepare qid=f7573b02 sql=CREATE TABLE IF NOT EXISTS users ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255), google_id VARCHAR(255) UNIQUE, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:19:56.655] [::1] [INFO] SQL.exec qid=f7573b02 ok elapsed_ms=66 affected=0
+[2025-08-11 19:19:56.657] [::1] [INFO] SQL.prepare qid=9d179097 sql=CREATE TABLE IF NOT EXISTS trips ( id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT NULL, latitude DECIMAL(9,6) NOT NULL, longitude DECIMAL(9,6) NOT NULL, user_id INT NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_trips_user_id (user_id), CONSTRAINT fk_trips_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:19:56.723] [::1] [INFO] SQL.exec qid=9d179097 ok elapsed_ms=66 affected=0
+[2025-08-11 19:19:56.726] [::1] [INFO] SQL.prepare qid=8e0f7706 sql=CREATE TABLE IF NOT EXISTS media ( id INT AUTO_INCREMENT PRIMARY KEY, trip_id INT NOT NULL, media_type VARCHAR(100) NOT NULL, full_name VARCHAR(1024) NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_media_trip_id (trip_id), CONSTRAINT fk_media_trip FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:19:56.792] [::1] [INFO] SQL.exec qid=8e0f7706 ok elapsed_ms=64 affected=0
+[2025-08-11 19:19:56.797] [::1] [INFO] trip rid=75046943 start method=POST ct="multipart/form-data; boundary=--------------------------831264454622013304720633" uid=2
+[2025-08-11 19:19:56.799] [::1] [INFO] trip rid=75046943 create multipart files=3 bytes=8570194
+[2025-08-11 19:19:56.803] [::1] [INFO] SQL.prepare qid=29a2b3ae sql=INSERT INTO trips (title, description, latitude, longitude, user_id) VALUES (?, ?, ?, ?, ?) params=["Giresun Sahili","Güneşli bir gün",40.916,38.3874,2]
+[2025-08-11 19:19:56.874] [::1] [INFO] SQL.exec qid=29a2b3ae ok elapsed_ms=71 affected=1 last_id=7
+[2025-08-11 19:19:56.875] [::1] [INFO] SQL.prepare qid=9469bdd2 sql=SELECT * FROM trips WHERE user_id = ? ORDER BY id DESC LIMIT 1 params=[2]
+[2025-08-11 19:19:56.947] [::1] [INFO] SQL.select qid=9469bdd2 ok elapsed_ms=72 rows=1
+[2025-08-11 19:19:56.948] [::1] [INFO] SQL.prepare qid=5fffefd4 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[7,"image","images\/d0d00b25649b693c_1754939996.jpg"]
+[2025-08-11 19:19:57.012] [::1] [INFO] SQL.exec qid=5fffefd4 ok elapsed_ms=64 affected=1 last_id=9
+[2025-08-11 19:19:57.013] [::1] [INFO] trip rid=75046943 media_saved idx=0 type=image bytes=3102075
+[2025-08-11 19:19:57.015] [::1] [INFO] SQL.prepare qid=e5bffe01 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[7,"image","images\/5de59890778368af_1754939997.jpg"]
+[2025-08-11 19:19:57.083] [::1] [INFO] SQL.exec qid=e5bffe01 ok elapsed_ms=68 affected=1 last_id=10
+[2025-08-11 19:19:57.084] [::1] [INFO] trip rid=75046943 media_saved idx=1 type=image bytes=2973196
+[2025-08-11 19:19:57.086] [::1] [INFO] SQL.prepare qid=44408c89 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[7,"image","images\/0439cc33541c287f_1754939997.jpg"]
+[2025-08-11 19:19:57.154] [::1] [INFO] SQL.exec qid=44408c89 ok elapsed_ms=68 affected=1 last_id=11
+[2025-08-11 19:19:57.155] [::1] [INFO] trip rid=75046943 media_saved idx=2 type=image bytes=2494923
+[2025-08-11 19:19:57.156] [::1] [INFO] trip rid=75046943 create_ok id=7 media_saved=3
+[2025-08-11 19:20:16.997] [::1] [INFO] DB.connect2 start dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4 user=aybekcankaya1
+[2025-08-11 19:20:17.232] [::1] [INFO] DB.connect2 success dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4
+[2025-08-11 19:20:17.233] [::1] [INFO] SQL.prepare qid=1ab91ac2 sql=CREATE TABLE IF NOT EXISTS users ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255), google_id VARCHAR(255) UNIQUE, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:20:17.308] [::1] [INFO] SQL.exec qid=1ab91ac2 ok elapsed_ms=75 affected=0
+[2025-08-11 19:20:17.309] [::1] [INFO] SQL.prepare qid=f78f81c5 sql=CREATE TABLE IF NOT EXISTS trips ( id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT NULL, latitude DECIMAL(9,6) NOT NULL, longitude DECIMAL(9,6) NOT NULL, user_id INT NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_trips_user_id (user_id), CONSTRAINT fk_trips_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:20:17.381] [::1] [INFO] SQL.exec qid=f78f81c5 ok elapsed_ms=72 affected=0
+[2025-08-11 19:20:17.382] [::1] [INFO] SQL.prepare qid=beb03931 sql=CREATE TABLE IF NOT EXISTS media ( id INT AUTO_INCREMENT PRIMARY KEY, trip_id INT NOT NULL, media_type VARCHAR(100) NOT NULL, full_name VARCHAR(1024) NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_media_trip_id (trip_id), CONSTRAINT fk_media_trip FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:20:17.449] [::1] [INFO] SQL.exec qid=beb03931 ok elapsed_ms=67 affected=0
+[2025-08-11 19:20:17.450] [::1] [INFO] trip rid=18c9c72a start method=POST ct="multipart/form-data; boundary=--------------------------648685037728920468662886" uid=2
+[2025-08-11 19:20:17.451] [::1] [INFO] trip rid=18c9c72a create multipart files=16 bytes=33389573
+[2025-08-11 19:20:17.452] [::1] [INFO] SQL.prepare qid=76e4761e sql=INSERT INTO trips (title, description, latitude, longitude, user_id) VALUES (?, ?, ?, ?, ?) params=["Giresun Sahili","Güneşli bir gün",40.916,38.3874,2]
+[2025-08-11 19:20:17.532] [::1] [INFO] SQL.exec qid=76e4761e ok elapsed_ms=80 affected=1 last_id=8
+[2025-08-11 19:20:17.533] [::1] [INFO] SQL.prepare qid=62eb3471 sql=SELECT * FROM trips WHERE user_id = ? ORDER BY id DESC LIMIT 1 params=[2]
+[2025-08-11 19:20:17.609] [::1] [INFO] SQL.select qid=62eb3471 ok elapsed_ms=76 rows=1
+[2025-08-11 19:20:17.614] [::1] [INFO] SQL.prepare qid=7465fc69 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/3250873cfb9f1243_1754940017.jpg"]
+[2025-08-11 19:20:17.689] [::1] [INFO] SQL.exec qid=7465fc69 ok elapsed_ms=75 affected=1 last_id=12
+[2025-08-11 19:20:17.690] [::1] [INFO] trip rid=18c9c72a media_saved idx=0 type=image bytes=675968
+[2025-08-11 19:20:17.691] [::1] [INFO] SQL.prepare qid=2d520d17 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/5c52ec9f20ec1143_1754940017.jpg"]
+[2025-08-11 19:20:17.760] [::1] [INFO] SQL.exec qid=2d520d17 ok elapsed_ms=69 affected=1 last_id=13
+[2025-08-11 19:20:17.761] [::1] [INFO] trip rid=18c9c72a media_saved idx=1 type=image bytes=112482
+[2025-08-11 19:20:17.762] [::1] [INFO] SQL.prepare qid=02e689a8 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/1fd3bc2de5c3b53c_1754940017.jpg"]
+[2025-08-11 19:20:17.830] [::1] [INFO] SQL.exec qid=02e689a8 ok elapsed_ms=68 affected=1 last_id=14
+[2025-08-11 19:20:17.831] [::1] [INFO] trip rid=18c9c72a media_saved idx=2 type=image bytes=258039
+[2025-08-11 19:20:17.833] [::1] [INFO] SQL.prepare qid=5f56caea sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/dfc282fa78f2ae36_1754940017.jpg"]
+[2025-08-11 19:20:17.927] [::1] [INFO] SQL.exec qid=5f56caea ok elapsed_ms=94 affected=1 last_id=15
+[2025-08-11 19:20:17.928] [::1] [INFO] trip rid=18c9c72a media_saved idx=3 type=image bytes=258039
+[2025-08-11 19:20:17.928] [::1] [INFO] SQL.prepare qid=7f483408 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/909bcb27addc17a1_1754940017.jpg"]
+[2025-08-11 19:20:17.999] [::1] [INFO] SQL.exec qid=7f483408 ok elapsed_ms=71 affected=1 last_id=16
+[2025-08-11 19:20:18.001] [::1] [INFO] trip rid=18c9c72a media_saved idx=4 type=image bytes=447031
+[2025-08-11 19:20:18.002] [::1] [INFO] SQL.prepare qid=18c78220 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/a404e9e0b5fed601_1754940018.jpg"]
+[2025-08-11 19:20:18.080] [::1] [INFO] SQL.exec qid=18c78220 ok elapsed_ms=78 affected=1 last_id=17
+[2025-08-11 19:20:18.081] [::1] [INFO] trip rid=18c9c72a media_saved idx=5 type=image bytes=2989940
+[2025-08-11 19:20:18.081] [::1] [INFO] SQL.prepare qid=ad9885bf sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/ea9892d4a9a56520_1754940018.jpg"]
+[2025-08-11 19:20:18.149] [::1] [INFO] SQL.exec qid=ad9885bf ok elapsed_ms=68 affected=1 last_id=18
+[2025-08-11 19:20:18.150] [::1] [INFO] trip rid=18c9c72a media_saved idx=6 type=image bytes=2956509
+[2025-08-11 19:20:18.151] [::1] [INFO] SQL.prepare qid=e52fc709 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/3b1221be47936548_1754940018.jpg"]
+[2025-08-11 19:20:18.222] [::1] [INFO] SQL.exec qid=e52fc709 ok elapsed_ms=70 affected=1 last_id=19
+[2025-08-11 19:20:18.222] [::1] [INFO] trip rid=18c9c72a media_saved idx=7 type=image bytes=3054242
+[2025-08-11 19:20:18.223] [::1] [INFO] SQL.prepare qid=f8bedfb3 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/bdd57fc23d9a59ec_1754940018.jpg"]
+[2025-08-11 19:20:18.300] [::1] [INFO] SQL.exec qid=f8bedfb3 ok elapsed_ms=76 affected=1 last_id=20
+[2025-08-11 19:20:18.300] [::1] [INFO] trip rid=18c9c72a media_saved idx=8 type=image bytes=3043229
+[2025-08-11 19:20:18.301] [::1] [INFO] SQL.prepare qid=692cb3e3 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/b48621bc92533757_1754940018.jpg"]
+[2025-08-11 19:20:18.370] [::1] [INFO] SQL.exec qid=692cb3e3 ok elapsed_ms=69 affected=1 last_id=21
+[2025-08-11 19:20:18.371] [::1] [INFO] trip rid=18c9c72a media_saved idx=9 type=image bytes=2943437
+[2025-08-11 19:20:18.371] [::1] [INFO] SQL.prepare qid=5bd1a418 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/dd0a4b0931149254_1754940018.jpg"]
+[2025-08-11 19:20:18.439] [::1] [INFO] SQL.exec qid=5bd1a418 ok elapsed_ms=67 affected=1 last_id=22
+[2025-08-11 19:20:18.439] [::1] [INFO] trip rid=18c9c72a media_saved idx=10 type=image bytes=2904104
+[2025-08-11 19:20:18.440] [::1] [INFO] SQL.prepare qid=35cf08d4 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/cfb0934b9a7b7207_1754940018.jpg"]
+[2025-08-11 19:20:18.520] [::1] [INFO] SQL.exec qid=35cf08d4 ok elapsed_ms=79 affected=1 last_id=23
+[2025-08-11 19:20:18.520] [::1] [INFO] trip rid=18c9c72a media_saved idx=11 type=image bytes=2677478
+[2025-08-11 19:20:18.521] [::1] [INFO] SQL.prepare qid=0f4dc0c1 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/0177ebacc6fd2cca_1754940018.jpg"]
+[2025-08-11 19:20:18.591] [::1] [INFO] SQL.exec qid=0f4dc0c1 ok elapsed_ms=69 affected=1 last_id=24
+[2025-08-11 19:20:18.592] [::1] [INFO] trip rid=18c9c72a media_saved idx=12 type=image bytes=2498881
+[2025-08-11 19:20:18.593] [::1] [INFO] SQL.prepare qid=be3dcc12 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/26efb64869cc8656_1754940018.jpg"]
+[2025-08-11 19:20:18.670] [::1] [INFO] SQL.exec qid=be3dcc12 ok elapsed_ms=77 affected=1 last_id=25
+[2025-08-11 19:20:18.672] [::1] [INFO] trip rid=18c9c72a media_saved idx=13 type=image bytes=3102075
+[2025-08-11 19:20:18.673] [::1] [INFO] SQL.prepare qid=9459afb0 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/cf67e8b8941bce77_1754940018.jpg"]
+[2025-08-11 19:20:18.751] [::1] [INFO] SQL.exec qid=9459afb0 ok elapsed_ms=77 affected=1 last_id=26
+[2025-08-11 19:20:18.752] [::1] [INFO] trip rid=18c9c72a media_saved idx=14 type=image bytes=2973196
+[2025-08-11 19:20:18.755] [::1] [INFO] SQL.prepare qid=d170dafa sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[8,"image","images\/5b06d2bdc3989737_1754940018.jpg"]
+[2025-08-11 19:20:18.832] [::1] [INFO] SQL.exec qid=d170dafa ok elapsed_ms=76 affected=1 last_id=27
+[2025-08-11 19:20:18.833] [::1] [INFO] trip rid=18c9c72a media_saved idx=15 type=image bytes=2494923
+[2025-08-11 19:20:18.833] [::1] [INFO] trip rid=18c9c72a create_ok id=8 media_saved=16
+[2025-08-11 19:22:56.873] [::1] [INFO] DB.connect2 start dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4 user=aybekcankaya1
+[2025-08-11 19:22:57.102] [::1] [INFO] DB.connect2 success dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4
+[2025-08-11 19:22:57.103] [::1] [INFO] SQL.prepare qid=cac06721 sql=CREATE TABLE IF NOT EXISTS users ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255), google_id VARCHAR(255) UNIQUE, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:22:57.172] [::1] [INFO] SQL.exec qid=cac06721 ok elapsed_ms=69 affected=0
+[2025-08-11 19:22:57.173] [::1] [INFO] SQL.prepare qid=a1b8cf5e sql=CREATE TABLE IF NOT EXISTS trips ( id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT NULL, latitude DECIMAL(9,6) NOT NULL, longitude DECIMAL(9,6) NOT NULL, user_id INT NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_trips_user_id (user_id), CONSTRAINT fk_trips_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:22:57.254] [::1] [INFO] SQL.exec qid=a1b8cf5e ok elapsed_ms=81 affected=0
+[2025-08-11 19:22:57.255] [::1] [INFO] SQL.prepare qid=9f57933e sql=CREATE TABLE IF NOT EXISTS media ( id INT AUTO_INCREMENT PRIMARY KEY, trip_id INT NOT NULL, media_type VARCHAR(100) NOT NULL, full_name VARCHAR(1024) NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_media_trip_id (trip_id), CONSTRAINT fk_media_trip FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:22:57.331] [::1] [INFO] SQL.exec qid=9f57933e ok elapsed_ms=75 affected=0
+[2025-08-11 19:22:57.334] [::1] [INFO] trip rid=9c9d4515 start method=POST ct="multipart/form-data; boundary=--------------------------904839093159207891142269" uid=2
+[2025-08-11 19:22:57.335] [::1] [INFO] trip rid=9c9d4515 create multipart files=16 bytes=33389573
+[2025-08-11 19:22:57.337] [::1] [INFO] SQL.prepare qid=d0a0437d sql=INSERT INTO trips (title, description, latitude, longitude, user_id) VALUES (?, ?, ?, ?, ?) params=["Giresun Sahili","Güneşli bir gün",40.916,38.3874,2]
+[2025-08-11 19:22:57.425] [::1] [INFO] SQL.exec qid=d0a0437d ok elapsed_ms=88 affected=1 last_id=9
+[2025-08-11 19:22:57.427] [::1] [INFO] SQL.prepare qid=258f3fb6 sql=SELECT * FROM trips WHERE user_id = ? ORDER BY id DESC LIMIT 1 params=[2]
+[2025-08-11 19:22:57.504] [::1] [INFO] SQL.select qid=258f3fb6 ok elapsed_ms=77 rows=1
+[2025-08-11 19:22:57.510] [::1] [INFO] SQL.prepare qid=f8716655 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/beaeac82a840092a_1754940177.jpg"]
+[2025-08-11 19:22:57.581] [::1] [INFO] SQL.exec qid=f8716655 ok elapsed_ms=70 affected=1 last_id=28
+[2025-08-11 19:22:57.583] [::1] [INFO] trip rid=9c9d4515 media_saved idx=0 type=image bytes=675968
+[2025-08-11 19:22:57.584] [::1] [INFO] SQL.prepare qid=b25fecf9 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/fa28feb0a7c42b8f_1754940177.jpg"]
+[2025-08-11 19:22:57.662] [::1] [INFO] SQL.exec qid=b25fecf9 ok elapsed_ms=77 affected=1 last_id=29
+[2025-08-11 19:22:57.663] [::1] [INFO] trip rid=9c9d4515 media_saved idx=1 type=image bytes=112482
+[2025-08-11 19:22:57.664] [::1] [INFO] SQL.prepare qid=8bed1b56 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/593160f59bcea378_1754940177.jpg"]
+[2025-08-11 19:22:57.743] [::1] [INFO] SQL.exec qid=8bed1b56 ok elapsed_ms=78 affected=1 last_id=30
+[2025-08-11 19:22:57.744] [::1] [INFO] trip rid=9c9d4515 media_saved idx=2 type=image bytes=258039
+[2025-08-11 19:22:57.745] [::1] [INFO] SQL.prepare qid=2c107314 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/fe713e470c968667_1754940177.jpg"]
+[2025-08-11 19:22:57.821] [::1] [INFO] SQL.exec qid=2c107314 ok elapsed_ms=75 affected=1 last_id=31
+[2025-08-11 19:22:57.821] [::1] [INFO] trip rid=9c9d4515 media_saved idx=3 type=image bytes=258039
+[2025-08-11 19:22:57.822] [::1] [INFO] SQL.prepare qid=4d27bbb1 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/59ec74559489733c_1754940177.jpg"]
+[2025-08-11 19:22:57.894] [::1] [INFO] SQL.exec qid=4d27bbb1 ok elapsed_ms=71 affected=1 last_id=32
+[2025-08-11 19:22:57.895] [::1] [INFO] trip rid=9c9d4515 media_saved idx=4 type=image bytes=447031
+[2025-08-11 19:22:57.896] [::1] [INFO] SQL.prepare qid=f90632f1 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/089b47865f5cf748_1754940177.jpg"]
+[2025-08-11 19:22:57.972] [::1] [INFO] SQL.exec qid=f90632f1 ok elapsed_ms=76 affected=1 last_id=33
+[2025-08-11 19:22:57.974] [::1] [INFO] trip rid=9c9d4515 media_saved idx=5 type=image bytes=2989940
+[2025-08-11 19:22:57.976] [::1] [INFO] SQL.prepare qid=94666c06 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/560f06b89deb77c4_1754940177.jpg"]
+[2025-08-11 19:22:58.056] [::1] [INFO] SQL.exec qid=94666c06 ok elapsed_ms=80 affected=1 last_id=34
+[2025-08-11 19:22:58.057] [::1] [INFO] trip rid=9c9d4515 media_saved idx=6 type=image bytes=2956509
+[2025-08-11 19:22:58.059] [::1] [INFO] SQL.prepare qid=2ee4e9de sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/e8c4ce12857e2124_1754940178.jpg"]
+[2025-08-11 19:22:58.132] [::1] [INFO] SQL.exec qid=2ee4e9de ok elapsed_ms=73 affected=1 last_id=35
+[2025-08-11 19:22:58.133] [::1] [INFO] trip rid=9c9d4515 media_saved idx=7 type=image bytes=3054242
+[2025-08-11 19:22:58.134] [::1] [INFO] SQL.prepare qid=74b3526f sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/d2b0ae69c191327e_1754940178.jpg"]
+[2025-08-11 19:22:58.211] [::1] [INFO] SQL.exec qid=74b3526f ok elapsed_ms=74 affected=1 last_id=36
+[2025-08-11 19:22:58.211] [::1] [INFO] trip rid=9c9d4515 media_saved idx=8 type=image bytes=3043229
+[2025-08-11 19:22:58.212] [::1] [INFO] SQL.prepare qid=0481c0dd sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/309d8ddd8fd5ec03_1754940178.jpg"]
+[2025-08-11 19:22:58.281] [::1] [INFO] SQL.exec qid=0481c0dd ok elapsed_ms=69 affected=1 last_id=37
+[2025-08-11 19:22:58.282] [::1] [INFO] trip rid=9c9d4515 media_saved idx=9 type=image bytes=2943437
+[2025-08-11 19:22:58.283] [::1] [INFO] SQL.prepare qid=3e6fca31 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/c2652b8abf4853b7_1754940178.jpg"]
+[2025-08-11 19:22:58.352] [::1] [INFO] SQL.exec qid=3e6fca31 ok elapsed_ms=69 affected=1 last_id=38
+[2025-08-11 19:22:58.353] [::1] [INFO] trip rid=9c9d4515 media_saved idx=10 type=image bytes=2904104
+[2025-08-11 19:22:58.353] [::1] [INFO] SQL.prepare qid=340ad894 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/dfc00ad5133a7258_1754940178.jpg"]
+[2025-08-11 19:22:58.431] [::1] [INFO] SQL.exec qid=340ad894 ok elapsed_ms=77 affected=1 last_id=39
+[2025-08-11 19:22:58.432] [::1] [INFO] trip rid=9c9d4515 media_saved idx=11 type=image bytes=2677478
+[2025-08-11 19:22:58.433] [::1] [INFO] SQL.prepare qid=0280e3cd sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/231843455e83ec53_1754940178.jpg"]
+[2025-08-11 19:22:58.515] [::1] [INFO] SQL.exec qid=0280e3cd ok elapsed_ms=81 affected=1 last_id=40
+[2025-08-11 19:22:58.516] [::1] [INFO] trip rid=9c9d4515 media_saved idx=12 type=image bytes=2498881
+[2025-08-11 19:22:58.517] [::1] [INFO] SQL.prepare qid=778feab1 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/334ffbac60da3dcc_1754940178.jpg"]
+[2025-08-11 19:22:58.592] [::1] [INFO] SQL.exec qid=778feab1 ok elapsed_ms=74 affected=1 last_id=41
+[2025-08-11 19:22:58.593] [::1] [INFO] trip rid=9c9d4515 media_saved idx=13 type=image bytes=3102075
+[2025-08-11 19:22:58.595] [::1] [INFO] SQL.prepare qid=abf6640b sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/3676345a037cc2ad_1754940178.jpg"]
+[2025-08-11 19:22:58.678] [::1] [INFO] SQL.exec qid=abf6640b ok elapsed_ms=83 affected=1 last_id=42
+[2025-08-11 19:22:58.679] [::1] [INFO] trip rid=9c9d4515 media_saved idx=14 type=image bytes=2973196
+[2025-08-11 19:22:58.680] [::1] [INFO] SQL.prepare qid=cf64cf95 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[9,"image","images\/1c8766c31b53ae9c_1754940178.jpg"]
+[2025-08-11 19:22:58.751] [::1] [INFO] SQL.exec qid=cf64cf95 ok elapsed_ms=70 affected=1 last_id=43
+[2025-08-11 19:22:58.752] [::1] [INFO] trip rid=9c9d4515 media_saved idx=15 type=image bytes=2494923
+[2025-08-11 19:22:58.752] [::1] [INFO] trip rid=9c9d4515 create_ok id=9 media_saved=16
+[2025-08-11 19:24:02.153] [::1] [INFO] DB.connect2 start dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4 user=aybekcankaya1
+[2025-08-11 19:24:02.357] [::1] [INFO] DB.connect2 success dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4
+[2025-08-11 19:24:02.358] [::1] [INFO] SQL.prepare qid=bd36338e sql=CREATE TABLE IF NOT EXISTS users ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255), google_id VARCHAR(255) UNIQUE, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:24:02.431] [::1] [INFO] SQL.exec qid=bd36338e ok elapsed_ms=73 affected=0
+[2025-08-11 19:24:02.433] [::1] [INFO] SQL.prepare qid=daf959f1 sql=CREATE TABLE IF NOT EXISTS trips ( id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT NULL, latitude DECIMAL(9,6) NOT NULL, longitude DECIMAL(9,6) NOT NULL, user_id INT NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_trips_user_id (user_id), CONSTRAINT fk_trips_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:24:02.501] [::1] [INFO] SQL.exec qid=daf959f1 ok elapsed_ms=68 affected=0
+[2025-08-11 19:24:02.502] [::1] [INFO] SQL.prepare qid=599b4284 sql=CREATE TABLE IF NOT EXISTS media ( id INT AUTO_INCREMENT PRIMARY KEY, trip_id INT NOT NULL, media_type VARCHAR(100) NOT NULL, full_name VARCHAR(1024) NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_media_trip_id (trip_id), CONSTRAINT fk_media_trip FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:24:02.572] [::1] [INFO] SQL.exec qid=599b4284 ok elapsed_ms=69 affected=0
+[2025-08-11 19:24:02.575] [::1] [INFO] trip rid=91ed0190 start method=POST ct="multipart/form-data; boundary=--------------------------309498959818485532591012" uid=2
+[2025-08-11 19:24:02.576] [::1] [INFO] trip rid=91ed0190 create multipart files=10 bytes=86090396
+[2025-08-11 19:24:02.576] [::1] [INFO] SQL.prepare qid=d5da04d7 sql=INSERT INTO trips (title, description, latitude, longitude, user_id) VALUES (?, ?, ?, ?, ?) params=["Giresun Sahili","Güneşli bir gün",40.916,38.3874,2]
+[2025-08-11 19:24:02.653] [::1] [INFO] SQL.exec qid=d5da04d7 ok elapsed_ms=76 affected=1 last_id=10
+[2025-08-11 19:24:02.654] [::1] [INFO] SQL.prepare qid=39cbe7f2 sql=SELECT * FROM trips WHERE user_id = ? ORDER BY id DESC LIMIT 1 params=[2]
+[2025-08-11 19:24:02.729] [::1] [INFO] SQL.select qid=39cbe7f2 ok elapsed_ms=74 rows=1
+[2025-08-11 19:24:02.731] [::1] [ERROR] trip rid=91ed0190 file_size_invalid idx=0 size=62575545
+[2025-08-11 19:24:35.586] [::1] [INFO] DB.connect2 start dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4 user=aybekcankaya1
+[2025-08-11 19:24:35.783] [::1] [INFO] DB.connect2 success dsn=mysql:host=68.183.222.202;port=3306;dbname=TrevaDB;charset=utf8mb4
+[2025-08-11 19:24:35.784] [::1] [INFO] SQL.prepare qid=f7e04bea sql=CREATE TABLE IF NOT EXISTS users ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255), google_id VARCHAR(255) UNIQUE, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:24:35.860] [::1] [INFO] SQL.exec qid=f7e04bea ok elapsed_ms=75 affected=0
+[2025-08-11 19:24:35.860] [::1] [INFO] SQL.prepare qid=2b638b3c sql=CREATE TABLE IF NOT EXISTS trips ( id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT NULL, latitude DECIMAL(9,6) NOT NULL, longitude DECIMAL(9,6) NOT NULL, user_id INT NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_trips_user_id (user_id), CONSTRAINT fk_trips_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:24:35.925] [::1] [INFO] SQL.exec qid=2b638b3c ok elapsed_ms=64 affected=0
+[2025-08-11 19:24:35.926] [::1] [INFO] SQL.prepare qid=37ceeedf sql=CREATE TABLE IF NOT EXISTS media ( id INT AUTO_INCREMENT PRIMARY KEY, trip_id INT NOT NULL, media_type VARCHAR(100) NOT NULL, full_name VARCHAR(1024) NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, INDEX idx_media_trip_id (trip_id), CONSTRAINT fk_media_trip FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE ON UPDATE CASCADE ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; params=[]
+[2025-08-11 19:24:35.993] [::1] [INFO] SQL.exec qid=37ceeedf ok elapsed_ms=65 affected=0
+[2025-08-11 19:24:35.995] [::1] [INFO] trip rid=fe0ad06f start method=POST ct="multipart/form-data; boundary=--------------------------387946526200326546711392" uid=2
+[2025-08-11 19:24:35.995] [::1] [INFO] trip rid=fe0ad06f create multipart files=10 bytes=33565652
+[2025-08-11 19:24:35.997] [::1] [INFO] SQL.prepare qid=c1914c18 sql=INSERT INTO trips (title, description, latitude, longitude, user_id) VALUES (?, ?, ?, ?, ?) params=["Giresun Sahili","Güneşli bir gün",40.916,38.3874,2]
+[2025-08-11 19:24:36.070] [::1] [INFO] SQL.exec qid=c1914c18 ok elapsed_ms=73 affected=1 last_id=11
+[2025-08-11 19:24:36.071] [::1] [INFO] SQL.prepare qid=c7716641 sql=SELECT * FROM trips WHERE user_id = ? ORDER BY id DESC LIMIT 1 params=[2]
+[2025-08-11 19:24:36.142] [::1] [INFO] SQL.select qid=c7716641 ok elapsed_ms=70 rows=1
+[2025-08-11 19:24:36.146] [::1] [INFO] SQL.prepare qid=ee8aa9b0 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[11,"video","videos\/af2633d6184c6520_1754940276.mp4"]
+[2025-08-11 19:24:36.227] [::1] [INFO] SQL.exec qid=ee8aa9b0 ok elapsed_ms=80 affected=1 last_id=44
+[2025-08-11 19:24:36.227] [::1] [INFO] trip rid=fe0ad06f media_saved idx=0 type=video bytes=10050801
+[2025-08-11 19:24:36.228] [::1] [INFO] SQL.prepare qid=faaac1f9 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[11,"image","images\/13a5203e01b2ad34_1754940276.jpg"]
+[2025-08-11 19:24:36.296] [::1] [INFO] SQL.exec qid=faaac1f9 ok elapsed_ms=68 affected=1 last_id=45
+[2025-08-11 19:24:36.297] [::1] [INFO] trip rid=fe0ad06f media_saved idx=1 type=image bytes=447031
+[2025-08-11 19:24:36.298] [::1] [INFO] SQL.prepare qid=2928ba5b sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[11,"image","images\/6afed22abc590773_1754940276.jpg"]
+[2025-08-11 19:24:36.367] [::1] [INFO] SQL.exec qid=2928ba5b ok elapsed_ms=68 affected=1 last_id=46
+[2025-08-11 19:24:36.368] [::1] [INFO] trip rid=fe0ad06f media_saved idx=2 type=image bytes=2989940
+[2025-08-11 19:24:36.370] [::1] [INFO] SQL.prepare qid=85881f74 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[11,"image","images\/441369ca8c9268d8_1754940276.jpg"]
+[2025-08-11 19:24:36.434] [::1] [INFO] SQL.exec qid=85881f74 ok elapsed_ms=64 affected=1 last_id=47
+[2025-08-11 19:24:36.436] [::1] [INFO] trip rid=fe0ad06f media_saved idx=3 type=image bytes=2956509
+[2025-08-11 19:24:36.439] [::1] [INFO] SQL.prepare qid=b82fe59d sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[11,"image","images\/036abcb370109630_1754940276.jpg"]
+[2025-08-11 19:24:36.506] [::1] [INFO] SQL.exec qid=b82fe59d ok elapsed_ms=66 affected=1 last_id=48
+[2025-08-11 19:24:36.507] [::1] [INFO] trip rid=fe0ad06f media_saved idx=4 type=image bytes=3054242
+[2025-08-11 19:24:36.511] [::1] [INFO] SQL.prepare qid=bb0e9c1a sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[11,"image","images\/01fac53e7f2159be_1754940276.jpg"]
+[2025-08-11 19:24:36.576] [::1] [INFO] SQL.exec qid=bb0e9c1a ok elapsed_ms=64 affected=1 last_id=49
+[2025-08-11 19:24:36.576] [::1] [INFO] trip rid=fe0ad06f media_saved idx=5 type=image bytes=3043229
+[2025-08-11 19:24:36.577] [::1] [INFO] SQL.prepare qid=d414fe07 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[11,"image","images\/e4a7da36d6a7f67c_1754940276.jpg"]
+[2025-08-11 19:24:36.647] [::1] [INFO] SQL.exec qid=d414fe07 ok elapsed_ms=69 affected=1 last_id=50
+[2025-08-11 19:24:36.649] [::1] [INFO] trip rid=fe0ad06f media_saved idx=6 type=image bytes=2943437
+[2025-08-11 19:24:36.651] [::1] [INFO] SQL.prepare qid=002fba21 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[11,"image","images\/63eb9242534c4b74_1754940276.jpg"]
+[2025-08-11 19:24:36.716] [::1] [INFO] SQL.exec qid=002fba21 ok elapsed_ms=65 affected=1 last_id=51
+[2025-08-11 19:24:36.717] [::1] [INFO] trip rid=fe0ad06f media_saved idx=7 type=image bytes=2904104
+[2025-08-11 19:24:36.721] [::1] [INFO] SQL.prepare qid=762fdaa9 sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[11,"image","images\/61735216e660f62b_1754940276.jpg"]
+[2025-08-11 19:24:36.785] [::1] [INFO] SQL.exec qid=762fdaa9 ok elapsed_ms=64 affected=1 last_id=52
+[2025-08-11 19:24:36.787] [::1] [INFO] trip rid=fe0ad06f media_saved idx=8 type=image bytes=2677478
+[2025-08-11 19:24:36.788] [::1] [INFO] SQL.prepare qid=ad178d9c sql=INSERT INTO media (trip_id, media_type, full_name) VALUES (?, ?, ?) params=[11,"image","images\/62f8950ff66efbc1_1754940276.jpg"]
+[2025-08-11 19:24:36.855] [::1] [INFO] SQL.exec qid=ad178d9c ok elapsed_ms=67 affected=1 last_id=53
+[2025-08-11 19:24:36.857] [::1] [INFO] trip rid=fe0ad06f media_saved idx=9 type=image bytes=2498881
+[2025-08-11 19:24:36.857] [::1] [INFO] trip rid=fe0ad06f create_ok id=11 media_saved=10
